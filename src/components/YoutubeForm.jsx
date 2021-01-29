@@ -55,6 +55,32 @@ const YoutubeForm = () => {
           <ErrorMessage name='channel' />
         </div>
 
+        <div className='form-control'>
+          <label htmlFor='comments'>Comments</label>
+          <Field
+            as='textarea'
+            id='comments'
+            name='comments'
+          />
+        </div>
+
+        <div className='form-control'>
+          <label htmlFor='adress'>Adress</label>
+            <Field name='adress'>
+            {
+                ({field, form, meta}) => {
+                    console.log(props)
+                    return (
+                        <div>
+                            <input type='text' id='adress' {...field}/>
+                            {meta.error && meta.touched ? <div>{meta.error}</div> : null}    
+                        </div>
+                    )
+                }
+            }
+            </Field>
+        </div>
+
         <button type='submit'>Submit</button>
       </Form>
     </Formik>
