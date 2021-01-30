@@ -35,6 +35,8 @@ const YoutubeForm = () => {
       initialValues={initialValues}
       onSubmit={onSubmit}
       validationSchema={validationSchema}
+      validateOnChange={false}
+      validateOnBlur={false}
     >
       <Form>
         <div className='form-control'>
@@ -109,10 +111,11 @@ const YoutubeForm = () => {
           <FieldArray name='phNumbers'>
               {
                 (fieldArrayProps) => {
-                    // console.log(fieldArrayProps)
                     const {form, push, remove} = fieldArrayProps
                     const {values} = form
                     const {phNumbers} = values
+
+                    console.log(form.errors)
                     return (
                         <div>
                             {phNumbers.map((phNumber, index) => {
